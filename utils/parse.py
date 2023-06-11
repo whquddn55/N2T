@@ -69,18 +69,11 @@ def get_notion_html(html_fp,
 
     # 본문 내용 가져오기, class 추가
     article = soup.find('article')
-    article['class'].append('Notion')
 
     # page-body 태그 가져오기, class 추가(선택자 우선순위를 두기 위해서)
     page_body_tag = soup.find('div', class_='page-body')
-    page_body_tag['class'].append('Tistory')
+    article.replaceWith(page_body_tag)
 
-    # 테이블(notion property 표 제거), 제목 제거
-    article.select('table')[0].extract()
-
-    # 제목 제거
-    title = article.find('h1', class_='page-title')
-    title.extract()
     changeTag(page_body_tag, 'h3', 'h4')
     changeTag(page_body_tag, 'h2', 'h3')
     changeTag(page_body_tag, 'h1', 'h2')
@@ -89,7 +82,7 @@ def get_notion_html(html_fp,
     if not from_zip:
         img_dir = os.path.dirname(html_fp)
         img_folder_name = os.path.basename(html_fp).split('.')[0]
-        img_tags = article.find_all('img')
+        img_tags = page_body_tag.find_all('img')
         for img_tag in img_tags:
             # 외부의 url 이미지이거나 이미 bases64인코딩된 이미지는 skip
             # 이미지 경로로 되어있는 경우는 직접 bases64 인코딩된 값으로 img 태그의 src 수정
@@ -138,6 +131,9 @@ def get_notion_html(html_fp,
         with open(save_fp, "w") as fp:
             fp.write(str(soup))
         print(f'output 파일 저장완료. [{save_fp}]')
+
+    # page_body_tag 삭제
+    page_body_tag.replaceWithChildren()
 
     return soup
 
