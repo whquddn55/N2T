@@ -59,6 +59,9 @@ def get_notion_html(html_fp,
     soup.find('title').extract()
     soup.find('style').extract()
 
+    # TOC 제거
+    soup.find(class_="table_of_contents").extract()
+
     # 코드 블럭이 존재하면 코드 블럭 type에 맞게 지정
     pre_tags = soup.find_all('pre')
     for i, pre_tag in enumerate(pre_tags):
