@@ -5,6 +5,12 @@ import os
 from urllib import parse
 from typing import List
 
+def changeTag(soup, tagName, changeTagName):
+    while True:
+        tag = soup.find(tagName)
+        if not tag:
+            break
+        tag.name = changeTagName
 
 def array2str(array):
     """ ['1','2','3'] -> '1, 2, 3' """
@@ -75,6 +81,9 @@ def get_notion_html(html_fp,
     # 제목 제거
     title = article.find('h1', class_='page-title')
     title.extract()
+    changeTag(page_body_tag, 'h3', 'h4')
+    changeTag(page_body_tag, 'h2', 'h3')
+    changeTag(page_body_tag, 'h1', 'h2')
 
     # zip파일이 아닌 html 파일로부터 parsing하는 경우만 이미지 태그 수정
     if not from_zip:
