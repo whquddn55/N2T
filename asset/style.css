@@ -4,12 +4,6 @@
     color: #666;
 }
 
-.contents_style a,
-.contents_style a.visited {
-  color: inherit;
-  text-decoration: underline;
-}
-
 .contents_style .pdf-relative-link-path {
   font-size: 80%;
   color: #444;
@@ -28,16 +22,31 @@
   margin-bottom: 0.75em;
 }
 
+.contents_style h2::before {
+  content: '# '
+}
+
 .contents_style h2 {
   margin-top: 1.875rem;
+  border-bottom: 1px solid black;
+}
+
+.contents_style h3::before {
+  content: '## '
 }
 
 .contents_style h3 {
   margin-top: 1.5rem;
+  border-bottom: 1px solid black;
+}
+
+.contents_style h4::before {
+  content: '### '
 }
 
 .contents_style h4 {
   margin-top: 1.25rem;
+  border-bottom: 1px solid black;
 }
 
 .contents_style .source {
