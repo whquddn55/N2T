@@ -1,23 +1,7 @@
 /* CSS for Notion Posts Start*/
-body .contents_style {
-    font-size: 16px;
-    line-height: 1.5;
-    font-family: 'Noto Sans', sans-serif;
-    color: #666;
-}
-
 .contents_style th, .contents_style td {
-    font-size: 15px;
     line-height: 1.5;
-    font-family: 'Noto Sans', sans-serif;
     color: #666;
-}
-
-.contents_style {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
-    "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-  box-sizing: border-box;
-  -webkit-print-color-adjust: exact;
 }
 
 .contents_style a,
@@ -36,29 +20,23 @@ body .contents_style {
 .contents_style h4 {
   letter-spacing: -0.01em;
   line-height: 1.2;
-  font-weight: 600;
   margin-bottom: 0;
 }
 
 .contents_style .page-title {
-  font-size: 2.5rem;
-  font-weight: 700;
   margin-top: 0;
   margin-bottom: 0.75em;
 }
 
 .contents_style h2 {
-  font-size: 1.875rem;
   margin-top: 1.875rem;
 }
 
 .contents_style h3 {
-  font-size: 1.5rem;
   margin-top: 1.5rem;
 }
 
 .contents_style h4 {
-  font-size: 1.25rem;
   margin-top: 1.25rem;
 }
 
@@ -81,7 +59,6 @@ body .contents_style {
 
 .contents_style figcaption {
   opacity: 0.5;
-  font-size: 85%;
   /* margin-top: 0.5em; */
 }
 
@@ -109,10 +86,6 @@ body .contents_style {
   max-width: 100%;
 }
 
-.contents_style .collection-content {
-  font-size: 0.875rem;
-}
-
 .contents_style .column-list {
   display: flex;
   justify-content: space-between;
@@ -132,7 +105,6 @@ body .contents_style {
 
 .contents_style .table_of_contents-item {
   display: block;
-  font-size: 0.875rem;
   line-height: 1.3;
   padding: 0.125rem;
 }
@@ -169,7 +141,6 @@ body .contents_style {
 
 .contents_style th,
 .contents_style td {
-  font-weight: normal;
   padding: 0.25em 0.5em;
   line-height: 1.5;
   min-height: 1.5em;
@@ -291,10 +262,6 @@ body .contents_style {
   margin-right: 0.5rem;
 }
 
-.contents_style .user-icon-inner {
-  font-size: 0.8em;
-}
-
 .contents_style .text-icon {
   border: 1px solid #000;
   text-align: center;
@@ -308,7 +275,6 @@ body .contents_style {
 }
 
 .contents_style .page-header-icon {
-  font-size: 3rem;
   margin-bottom: 1rem;
 }
 
@@ -325,7 +291,6 @@ body .contents_style {
   margin: 1em 0;
   padding: 0;
   border: none;
-  font-weight: 500;
 }
 
 .contents_style p > .user {
@@ -393,8 +358,6 @@ body .contents_style {
 */
 
 .contents_style blockquote {
-  font-style: normal;
-  font-size: 1.25em;
   margin: 1em 0;
   padding-left: 1em;
   border-left: 3px solid rgb(55, 53, 47);
@@ -410,7 +373,6 @@ body .contents_style {
 }
 
 .contents_style .bookmark-title {
-  font-size: 0.85em;
   overflow: hidden;
   text-overflow: ellipsis;
   height: 1.75em;
@@ -441,14 +403,12 @@ body .contents_style {
 
 .contents_style .bookmark-description {
   color: rgba(55, 53, 47, 0.6);
-  font-size: 0.75em;
   overflow: hidden;
   max-height: 4.5em;
   word-break: break-word;
 }
 
 .contents_style .bookmark-href {
-  font-size: 0.75em;
   margin-top: 0.25em;
 }
 
@@ -493,9 +453,6 @@ body .contents_style {
   font-family: PT Mono, Nitti, "Microsoft YaHei", "微软雅黑", monospace,
     "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK SC",
     "Noto Sans Mono CJK KR";
-}
-
-.contents_style .highlight-default {
 }
 
 .contents_style .highlight-gray {
@@ -730,13 +687,11 @@ em {
 /* 테이블 css */
 .contents_style .simple-table {
   margin-top: 1em;
-  font-size: 0.875rem;
 }
 
 .contents_style .simple-table-header {
   background: rgb(247, 246, 243);
   color: black;
-  font-weight: 500;
 }
 
 
