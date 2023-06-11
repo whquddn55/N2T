@@ -115,11 +115,18 @@ def get_notion_html(html_fp,
     if code_theme is None:
         code_theme = 'atom-one-dark'
     code_css = BeautifulSoup(
-        f"""<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/{code_theme}.min.css">
-                <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+        f"""<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/{code_theme}.min.css">
+                <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
                 <script>hljs.initHighlightingOnLoad();</script>""",
         'lxml')
     body.insert(0, code_css)
+
+    # body태그에 mathjax 적용
+    mathjax_script = BeautifulSoup(f"""
+        <script> MathJax = {{ tex: {{inlineMath: [['$', '$']]}} }}; </script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    """)
+    body.insert(0, mathjax_script)
 
     # N2T 워터마크 추가
     watermark = BeautifulSoup('<br><p class="">Uploaded by <mark class="highlight-orange"><a href="https://github.com/jmjeon94/N2T">N2T</a></mark></p>', 'lxml')
