@@ -43,27 +43,31 @@ class Notion2Tistory:
             print('[완료] 발행할 할 페이지가 없습니다.')
             sys.exit(1)
 
+        # 위에서 발급받은 code로 tistory 로그인(access_token 발급받기)
+        self.t_client = TistoryClient(cfg.TISTORY.BLOG_NAME)
+        is_valid_token = self.t_client.validate_token()
+        print('[진행중] 정상적인 AccessToken 입니다.' if is_valid_token else '[진행중] 비정상적인 AccessToken 입니다. 새로 발급 받습니다.')
+        if not is_valid_token:
+            print()
+            authorize_code = self.get_authorize_code(sleep_time, selenium_debug)
+            self.t_client.update_tistory_token(cfg.TISTORY.CLIENT_ID, cfg.TISTORY.SECRET_KEY, cfg.TISTORY.REDIRECT_URI, authorize_code)
+
+
+    def get_authorize_code(self, sleep_time=10, selenium_debug=False):
         # selenium 시작
-        self.s_client = SeleniumClient(sleep_time=sleep_time, is_hide=(not selenium_debug))
+        s_client = SeleniumClient(sleep_time=sleep_time, is_hide=(not selenium_debug))
 
         # selenium으로 kakao(tistory) 로그인, authorize code 발급받기(for OAuth)
         try:
-            self.s_client.tistory_login(cfg.TISTORY.ID, cfg.TISTORY.PW)
+            s_client.tistory_login(cfg.TISTORY.ID, cfg.TISTORY.PW)
         except Exception as e:
             print(e)
             print('[오류] 카카오톡 로그인 실패')
             sys.exit(1)
-        authorize_code = self.s_client.get_tistory_authorize_code(cfg.TISTORY.CLIENT_ID, cfg.TISTORY.REDIRECT_URI)
-
-        # 위에서 발급받은 code로 tistory 로그인(access_token 발급받기)
-        self.t_client = TistoryClient(authorize_code,
-                                      cfg.TISTORY.SECRET_KEY,
-                                      cfg.TISTORY.CLIENT_ID,
-                                      cfg.TISTORY.REDIRECT_URI,
-                                      cfg.TISTORY.BLOG_NAME)
-
+        authorize_code = s_client.get_tistory_authorize_code(cfg.TISTORY.CLIENT_ID, cfg.TISTORY.REDIRECT_URI)
         # selenium client 종료
-        self.s_client.quit()
+        s_client.quit()
+        return authorize_code
 
     def posts(self):
         for i, page in enumerate(self.pages):
