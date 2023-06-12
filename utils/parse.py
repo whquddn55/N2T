@@ -1,3 +1,5 @@
+import datetime
+
 from bs4 import BeautifulSoup
 import base64
 from io import BytesIO
@@ -34,7 +36,8 @@ def get_notion_html(html_fp,
                     code_languages: List = None,
                     code_theme: str = None,
                     from_zip=False,
-                    is_save=False):
+                    is_save=False,
+                    write_datetime_str: datetime = None):
     """
         CSS선택자를 위해
         최상단 article 태그에 NOTION class 추가
@@ -115,6 +118,11 @@ def get_notion_html(html_fp,
     # N2T 워터마크 추가
     watermark = BeautifulSoup('<br><p class="">Uploaded by <mark class="highlight-orange"><a href="https://github.com/jmjeon94/N2T">N2T</a></mark></p>', 'lxml')
     page_body_tag.append(watermark)
+
+    # 게시글 작성 시간 추가
+    if write_datetime_str is not None:
+        write_datetime_tag = BeautifulSoup(f'<p data-ke-size="size14">{write_datetime_str}</p>', 'lxml')
+        page_body_tag.append(write_datetime_tag)
 
     if is_save:
         # html 파일로 재 저장

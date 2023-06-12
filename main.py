@@ -35,7 +35,8 @@ class Notion2Tistory:
                                                          target_column=cfg.NOTION.COLUMN.STATUS,
                                                          target_upload_value=cfg.NOTION.POST.UPLOAD_VALUE,
                                                          target_modify_value=cfg.NOTION.POST.MODIFY_VALUE,
-                                                         url_column=cfg.NOTION.COLUMN.URL
+                                                         url_column=cfg.NOTION.COLUMN.URL,
+                                                         created_at=cfg.NOTION.COLUMN.CREATED_AT
                                                          )
 
         # upload할 페이지 체크해서 없으면 프로그램 종료
@@ -133,6 +134,7 @@ class Notion2Tistory:
                 title = page[0].title
             tags = array2str(page[0].get_property(cfg.NOTION.COLUMN.TAG))
             category_str = page[0].get_property(cfg.NOTION.COLUMN.CATEGORY)
+            created_at: datetime = page[0].get_property(cfg.NOTION.COLUMN.CREATED_AT)
         except:
             raise ValueError(f'[Error] 테이블의 컬럼명을 다시 확인해주세요.')
 
@@ -141,7 +143,10 @@ class Notion2Tistory:
         code_langs = [code_block.language for code_block in code_blocks]
 
         # html 파일로부터 parsing
-        content = get_notion_html(html_fp=filepath, code_languages=code_langs, code_theme=cfg.NOTION.CODE_BLOCK_THEME)
+        content = get_notion_html(html_fp=filepath,
+                                  code_languages=code_langs,
+                                  code_theme=cfg.NOTION.CODE_BLOCK_THEME,
+                                  write_datetime_str=created_at.strftime(cfg.TISTORY.WRITE_DATETIME_FORMAT))
         content = self.translate_img_url(content)
         print(f'\t[진행중] parsing 완료... ', end='')
 

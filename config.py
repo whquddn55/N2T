@@ -8,6 +8,7 @@ cfg = dotdict(
         SECRET_KEY='',
         CLIENT_ID='',
         REDIRECT_URI='',
+        WRITE_DATETIME_FORMAT='(%y.%m.%d %H:%M)에 작성된 글 입니다.',
     ),
 
     NOTION=dotdict(
@@ -21,7 +22,8 @@ cfg = dotdict(
             CATEGORY='카테고리',
             TAG='태그',
             STATUS='상태',
-            URL='링크'
+            URL='링크',
+            CREATED_AT='생성 일시'
         ),
 
         POST=dotdict(
