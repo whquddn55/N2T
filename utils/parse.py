@@ -6,6 +6,11 @@ from urllib import parse
 from typing import List
 
 
+def set_toggle_close(page_body_tag):
+    for detail_tag in page_body_tag.find_all('details'):
+        del detail_tag['open']
+
+
 def array2str(array):
     """ ['1','2','3'] -> '1, 2, 3' """
     return ', '.join(array)
@@ -75,6 +80,8 @@ def get_notion_html(html_fp,
     # 제목 제거
     title = article.find('h1', class_='page-title')
     title.extract()
+
+    set_toggle_close(page_body_tag)
 
     # zip파일이 아닌 html 파일로부터 parsing하는 경우만 이미지 태그 수정
     if not from_zip:
