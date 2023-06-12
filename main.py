@@ -35,7 +35,8 @@ class Notion2Tistory:
                                                          target_column=cfg.NOTION.COLUMN.STATUS,
                                                          target_upload_value=cfg.NOTION.POST.UPLOAD_VALUE,
                                                          target_modify_value=cfg.NOTION.POST.MODIFY_VALUE,
-                                                         url_column=cfg.NOTION.COLUMN.URL
+                                                         url_column=cfg.NOTION.COLUMN.URL,
+                                                         created_at=cfg.NOTION.COLUMN.CREATED_AT
                                                          )
 
         # upload할 페이지 체크해서 없으면 프로그램 종료

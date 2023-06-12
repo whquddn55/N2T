@@ -21,7 +21,8 @@ cfg = dotdict(
             CATEGORY='카테고리',
             TAG='태그',
             STATUS='상태',
-            URL='링크'
+            URL='링크',
+            CREATED_AT='생성 일시'
         ),
 
         POST=dotdict(

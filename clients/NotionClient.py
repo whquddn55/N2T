@@ -21,25 +21,27 @@ class Notion:
                               target_column: str,
                               target_upload_value: str,
                               target_modify_value: str,
-                              url_column: str):
+                              url_column: str,
+                              created_at: str):
         """
         table_url (str): Notion Table Page URL
         target_column (str): 테이블에서 발행 여부를 확인할 column 이름 e.g. '상태'
         target_values (str): 테이블에서 조회할 발행 리스트 e.g. '발행준비'
         target_values (str): 테이블에서 조회할 수정 리스트 e.g. '수정요청'
         url_column (str): 테이블에서 발행 후 기록할 url컬럼명 e.g. 'url'
+        created_at (str): 테이블에서 게시글 생성 시간 column 이름 e.g. '생성 일시'
 
         Return (List<cv.collection.CollectionRowBlock, post_id:str>): 발행할 게시물의 row, 기존에 발행된 경우라면 post id, 아니면 None을 담은 리스트
         """
         # get table
-        cv = self.client.get_collection_view(table_url)
+        cv = self.client.get_collection_view(table_url, force_refresh=True)
 
         # check query rows
         print('====== 업로드/수정 예정 목록 ======')
 
         pages = []
         for target_status in [target_upload_value, target_modify_value]:
-            for row in cv.collection.get_rows(search=target_status):
+            for row in cv.collection.get_rows(search=target_status, sort=[{"property": created_at, "direction": "ascending"}]):
                 # target_column 테이블 컬럼이 upload, modify중에 있으면 추가
                 if row.get_property(target_column) == target_upload_value:
                     modify_id = None
@@ -58,14 +60,16 @@ class Notion:
 
 if __name__ == '__main__':
 
-    from config_private import cfg
+    from config import cfg
 
     client = Notion(notion_token=cfg.NOTION.TOKEN_V2)
     pages = client.get_pages_readyToPost(cfg.NOTION.TABLE_PAGE_URL,
                                          target_column=cfg.NOTION.COLUMN.STATUS,
                                          target_modify_value=cfg.NOTION.POST.MODIFY_VALUE,
                                          target_upload_value=cfg.NOTION.POST.UPLOAD_VALUE,
-                                         url_column=cfg.NOTION.COLUMN.URL)
+                                         url_column=cfg.NOTION.COLUMN.URL,
+                                         created_at=cfg.NOTION.COLUMN.CREATED_AT
+                                         )
 
     for page in pages:
         print(page[0])
