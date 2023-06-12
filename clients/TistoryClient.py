@@ -1,27 +1,41 @@
+import json
+
 import requests
 from bs4 import BeautifulSoup
 from utils.parse import decode_b64
 
 
 class TistoryClient:
-    def __init__(self, authorize_code, secret_key, client_id, redirect_uri, blog_name, token=None):
-        # get tistory token using authorize code
-        if token is None:
-            self.token = self.get_tistory_token(client_id, secret_key, redirect_uri, authorize_code)
-        else:
-            self.token = token
-
+    def __init__(self, blog_name):
         # get blog name (한 계정에 블로그가 여러 개인 경우 직접 입력 필요)
         self.blog_name = blog_name
 
-        print('[진행중] Tistory Authorize code, Access Token 발급 완료!')
+        self.token = None
+        self.read_token()
+        print(f'[진행중] AccessToken: {self.token}')
 
-    def get_tistory_token(self, client_id, client_sercret_key, redirect_uri, code):
+    def read_token(self):
+        try:
+            with open("config.json", "r", encoding="utf-8") as f:
+                data = json.load(f)
+                self.token = data["access_token"]
+        except FileNotFoundError:
+            with open("config.json", "w", encoding="utf-8") as f:
+                json.dump({"access_token": ""}, f)
+
+    def save_token(self):
+        with open("config.json", "w", encoding="utf-8") as f:
+            json.dump({"access_token": self.token}, f)
+
+    def validate_token(self) -> bool:
+        return self.get_blog_info().status_code == 200
+
+    def update_tistory_token(self, client_id, client_secret_key, redirect_uri, code):
         """code를 통해 token값 얻기"""
         url = 'https://www.tistory.com/oauth/access_token'
         params = {
             'client_id': client_id,
-            'client_secret': client_sercret_key,
+            'client_secret': client_secret_key,
             'redirect_uri': redirect_uri,
             'code': code,
             'grant_type': 'authorization_code'
@@ -29,7 +43,9 @@ class TistoryClient:
         resp = requests.get(url, params=params)
         access_token = resp.text.split('=')[1]
 
-        return access_token
+        self.token = access_token
+        self.save_token()
+        print(f'[진행중] AccessToken updated: {self.token}')
 
     def get_tistory_code(self, id, pw, client_id, redirect_uri):
         """login 하고 code 얻기(deprecated)"""
