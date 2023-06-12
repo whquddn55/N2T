@@ -6,7 +6,7 @@ from notion.block import CodeBlock
 from utils.utils import *
 from utils.parse import *
 from clients.GmailClient import *
-from datetime import datetime
+from datetime import datetime, timedelta
 import sys, os
 import warnings
 import traceback
@@ -129,7 +129,7 @@ class Notion2Tistory:
                 title = page[0].title
             tags = array2str(page[0].get_property(cfg.NOTION.COLUMN.TAG))
             category_str = page[0].get_property(cfg.NOTION.COLUMN.CATEGORY)
-            created_at: datetime = page[0].get_property(cfg.NOTION.COLUMN.CREATED_AT)
+            created_at: datetime = page[0].get_property(cfg.NOTION.COLUMN.CREATED_AT) + timedelta(hours=9)
         except:
             raise ValueError(f'[Error] 테이블의 컬럼명을 다시 확인해주세요.')
 
