@@ -60,7 +60,9 @@ def get_notion_html(html_fp,
     soup.find('style').extract()
 
     # TOC 제거
-    soup.find(class_="table_of_contents").extract()
+    toc = soup.find(class_="table_of_contents")
+    if toc is not None:
+        toc.extract()
 
     # 코드 블럭이 존재하면 코드 블럭 type에 맞게 지정
     pre_tags = soup.find_all('pre')
