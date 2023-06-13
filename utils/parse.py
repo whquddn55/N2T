@@ -14,6 +14,11 @@ def changeTag(soup, tagName, changeTagName):
             break
         tag.name = changeTagName
 
+def set_toggle_close(page_body_tag):
+    for detail_tag in page_body_tag.find_all('details'):
+        del detail_tag['open']
+
+
 def array2str(array):
     """ ['1','2','3'] -> '1, 2, 3' """
     return ', '.join(array)
@@ -80,6 +85,8 @@ def get_notion_html(html_fp,
     changeTag(page_body_tag, 'h3', 'h4')
     changeTag(page_body_tag, 'h2', 'h3')
     changeTag(page_body_tag, 'h1', 'h2')
+
+    set_toggle_close(page_body_tag)
 
     # zip파일이 아닌 html 파일로부터 parsing하는 경우만 이미지 태그 수정
     if not from_zip:
