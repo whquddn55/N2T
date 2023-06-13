@@ -172,6 +172,8 @@ def get_target_blocks(page, target_block_type):
 
     while q:
         block = q.popleft()
+        if block is None:
+            continue
         if isinstance(block, target_block_type):
             target_blocks.append(block)
 
