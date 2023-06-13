@@ -1,0 +1,718 @@
+/* CSS for Notion Posts Start*/
+.contents_style th, .contents_style td {
+    line-height: 1.5;
+    color: #666;
+}
+
+.contents_style .pdf-relative-link-path {
+  font-size: 80%;
+  color: #444;
+}
+
+.contents_style h2,
+.contents_style h3,
+.contents_style h4 {
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+.contents_style .page-title {
+  margin-top: 0;
+  margin-bottom: 0.75em;
+}
+
+.contents_style h2::before {
+  content: '# '
+}
+
+.contents_style h2 {
+  margin-top: 1.875rem;
+  border-bottom: 1px solid black;
+}
+
+.contents_style h3::before {
+  content: '## '
+}
+
+.contents_style h3 {
+  margin-top: 1.5rem;
+  border-bottom: 1px solid black;
+}
+
+.contents_style h4::before {
+  content: '### '
+}
+
+.contents_style h4 {
+  margin-top: 1.25rem;
+  border-bottom: 1px solid black;
+}
+
+.contents_style .source {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 1.5em;
+  word-break: break-all;
+}
+
+.contents_style .callout {
+  border-radius: 3px;
+  padding: 1rem;
+}
+
+.contents_style figure {
+  margin: 1em 0;
+  page-break-inside: avoid;
+}
+
+.contents_style figcaption {
+  opacity: 0.5;
+  /* margin-top: 0.5em; */
+}
+
+.contents_style mark {
+  background-color: transparent;
+}
+
+.contents_style .indented {
+  padding-left: 1.5em;
+}
+
+.contents_style hr {
+  background: transparent;
+  display: block;
+  width: 100%;
+  height: 1px;
+  visibility: visible;
+  border: none;
+  border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+  /* jmjeon */
+  margin: 0em;
+}
+
+.contents_style img {
+  max-width: 100%;
+}
+
+.contents_style .column-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contents_style .column {
+  padding: 0 1em;
+}
+
+.contents_style .column:first-child {
+  padding-left: 0;
+}
+
+.contents_style .column:last-child {
+  padding-right: 0;
+}
+
+.contents_style .table_of_contents-item {
+  display: block;
+  line-height: 1.3;
+  padding: 0.125rem;
+}
+
+.contents_style .table_of_contents-indent-1 {
+  margin-left: 1.5rem;
+}
+
+.contents_style .table_of_contents-indent-2 {
+  margin-left: 3rem;
+}
+
+.contents_style .table_of_contents-indent-3 {
+  margin-left: 4.5rem;
+}
+
+.contents_style .table_of_contents-link {
+  text-decoration: none;
+  opacity: 0.7;
+  border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+.contents_style table,
+.contents_style th,
+.contents_style td {
+  border: 1px solid rgba(55, 53, 47, 0.09);
+  border-collapse: collapse;
+}
+
+.contents_style table {
+  border-left: none;
+  border-right: none;
+}
+
+.contents_style th,
+.contents_style td {
+  padding: 0.25em 0.5em;
+  line-height: 1.5;
+  min-height: 1.5em;
+  text-align: left;
+}
+
+.contents_style th {
+  color: rgba(55, 53, 47, 0.6);
+}
+
+.contents_style ol,
+.contents_style ul {
+  margin: 0;
+  margin-block-start: 0.6em;
+  margin-block-end: 0.6em;
+}
+
+.contents_style li > ol:first-child,
+.contents_style li > ul:first-child {
+  margin-block-start: 0.6em;
+}
+
+.contents_style ul > li {
+  list-style: disc;
+}
+
+.contents_style ul.to-do-list {
+  text-indent: -1.7em;
+}
+
+.contents_style ul.to-do-list > li {
+  list-style: none;
+}
+
+.contents_style .to-do-children-checked {
+  text-decoration: line-through;
+  opacity: 0.375;
+}
+
+.contents_style .toggle > li {
+  list-style: none;
+}
+
+.contents_style ul {
+  padding-inline-start: 1.7em;
+}
+
+.contents_style ul > li {
+  padding-left: 0.1em;
+}
+
+.contents_style ol {
+  padding-inline-start: 1.6em;
+}
+
+.contents_style ol > li {
+  padding-left: 0.2em;
+}
+
+.contents_style .mono ol {
+  padding-inline-start: 2em;
+}
+
+.contents_style .mono ol > li {
+  text-indent: -0.4em;
+}
+
+.contents_style .toggle {
+  padding-inline-start: 0em;
+  list-style-type: none;
+}
+
+/* Indent toggle children */
+.contents_style .toggle > li > details {
+  padding-left: 1.7em;
+}
+
+.contents_style .toggle > li > details > summary {
+  margin-left: -1.1em;
+}
+
+.contents_style .selected-value {
+  display: inline-block;
+  padding: 0 0.5em;
+  background: rgba(206, 205, 202, 0.5);
+  border-radius: 3px;
+  margin-right: 0.5em;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+  white-space: nowrap;
+}
+
+.contents_style .collection-title {
+  display: inline-block;
+  margin-right: 1em;
+}
+
+.contents_style time {
+  opacity: 0.5;
+}
+
+.contents_style .icon {
+  display: inline-block;
+  max-width: 1.2em;
+  max-height: 1.2em;
+  text-decoration: none;
+  vertical-align: text-bottom;
+  margin-right: 0.5em;
+}
+
+.contents_style img.icon {
+  border-radius: 3px;
+}
+
+.contents_style .user-icon {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 100%;
+  margin-right: 0.5rem;
+}
+
+.contents_style .text-icon {
+  border: 1px solid #000;
+  text-align: center;
+}
+
+.contents_style .page-cover-image {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 30vh;
+}
+
+.contents_style .page-header-icon {
+  margin-bottom: 1rem;
+}
+
+.contents_style .page-header-icon-with-cover {
+  margin-top: -0.72em;
+  margin-left: 0.07em;
+}
+
+.contents_style .page-header-icon img {
+  border-radius: 3px;
+}
+
+.contents_style .link-to-page {
+  margin: 1em 0;
+  padding: 0;
+  border: none;
+}
+
+.contents_style p > .user {
+  opacity: 0.5;
+}
+
+.contents_style td > .user,
+.contents_style td > time {
+  white-space: nowrap;
+}
+
+.contents_style input[type="checkbox"] {
+  transform: scale(1.5);
+  margin-right: 0.6em;
+  vertical-align: middle;
+}
+
+.contents_style p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  white-space: pre-line;
+}
+
+.contents_style .image {
+  border: none;
+  margin: 1.5em 0;
+  padding: 0;
+  border-radius: 0;
+  text-align: center;
+}
+/*
+.contents_style .code,
+.contents_style code {
+    background: rgba(135, 131, 120, 0.15);
+    border-radius: 3px;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-size: 85%;
+    tab-size: 2;
+}
+*/
+
+/* 단어 코드 블럭(cmd+e) 색 설정 hljs는 문단코드 블럭으로 제외*/
+.contents_style code:not(.hljs) {
+  color: #eb5757;
+  font-size: 85%;
+  padding: 2px 5px;
+  border-radius: 3px;
+  background: #efefef;
+  margin: 0 2px;
+  border: 1px solid #e0e0e0;
+}
+
+/*
+.contents_style .code {
+    padding: 1.5em 1em;
+}
+
+.contents_style .code>code {
+    background: none;
+    padding: 0;
+    font-size: 100%;
+    color: inherit;
+}
+*/
+
+.contents_style blockquote {
+  margin: 1em 0;
+  padding-left: 1em;
+  border-left: 3px solid rgb(55, 53, 47);
+}
+
+.contents_style .bookmark {
+  text-decoration: none;
+  max-height: 8em;
+  padding: 0;
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
+
+.contents_style .bookmark-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 1.75em;
+  white-space: nowrap;
+}
+
+.contents_style .bookmark-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.contents_style .bookmark-info {
+  flex: 4 1 180px;
+  padding: 12px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contents_style .bookmark-image {
+  width: 33%;
+  flex: 1 1 180px;
+  display: block;
+  position: relative;
+  object-fit: cover;
+  border-radius: 1px;
+}
+
+.contents_style .bookmark-description {
+  color: rgba(55, 53, 47, 0.6);
+  overflow: hidden;
+  max-height: 4.5em;
+  word-break: break-word;
+}
+
+.contents_style .bookmark-href {
+  margin-top: 0.25em;
+}
+
+.contents_style .sans {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.contents_style .code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+    monospace;
+}
+
+.contents_style .serif {
+  font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, "华文楷体", KaiTi_GB2312,
+    "楷体_GB2312", serif;
+}
+
+.contents_style .mono {
+  font-family: Nitti, "Microsoft YaHei", "微软雅黑", monospace;
+}
+
+.contents_style .pdf .sans {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol",
+    "Twemoji", "Noto Color Emoji", "Noto Sans CJK SC", "Noto Sans CJK KR";
+}
+
+.contents_style .pdf .code {
+  font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono",
+    Menlo, Courier, monospace, "Twemoji", "Noto Color Emoji",
+    "Noto Sans Mono CJK SC", "Noto Sans Mono CJK KR";
+}
+
+.contents_style .pdf .serif {
+  font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, "华文楷体",
+    KaiTi_GB2312, "楷体_GB2312", serif, "Twemoji", "Noto Color Emoji",
+    "Noto Sans CJK SC", "Noto Sans CJK KR";
+}
+
+.contents_style .pdf .mono {
+  font-family: PT Mono, Nitti, "Microsoft YaHei", "微软雅黑", monospace,
+    "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK SC",
+    "Noto Sans Mono CJK KR";
+}
+
+.contents_style .highlight-gray {
+  color: rgb(155, 154, 151);
+}
+
+.contents_style .highlight-brown {
+  color: rgb(100, 71, 58);
+}
+
+.contents_style .highlight-orange {
+  color: rgb(217, 115, 13);
+}
+
+.contents_style .highlight-yellow {
+  color: rgb(223, 171, 1);
+}
+
+.contents_style .highlight-teal {
+  color: rgb(15, 123, 108);
+}
+
+.contents_style .highlight-blue {
+  color: rgb(11, 110, 153);
+}
+
+.contents_style .highlight-purple {
+  color: rgb(105, 64, 165);
+}
+
+.contents_style .highlight-pink {
+  color: rgb(173, 26, 114);
+}
+
+.contents_style .highlight-red {
+  color: rgb(224, 62, 62);
+}
+
+.contents_style .highlight-gray_background {
+  background: rgb(235, 236, 237);
+}
+
+.contents_style .highlight-brown_background {
+  background: rgb(233, 229, 227);
+}
+
+.contents_style .highlight-orange_background {
+  background: rgb(250, 235, 221);
+}
+
+.contents_style .highlight-yellow_background {
+  background: rgb(251, 243, 219);
+}
+
+.contents_style .highlight-teal_background {
+  background: rgb(221, 237, 234);
+}
+
+.contents_style .highlight-blue_background {
+  background: rgb(221, 235, 241);
+}
+
+.contents_style .highlight-purple_background {
+  background: rgb(234, 228, 242);
+}
+
+.contents_style .highlight-pink_background {
+  background: rgb(244, 223, 235);
+}
+
+.contents_style .highlight-red_background {
+  background: rgb(251, 228, 228);
+}
+
+.contents_style .block-color-default {
+  color: inherit;
+  fill: inherit;
+}
+
+.contents_style .block-color-gray {
+  color: rgba(55, 53, 47, 0.6);
+  fill: rgba(55, 53, 47, 0.6);
+}
+
+.contents_style .block-color-brown {
+  color: rgb(100, 71, 58);
+  fill: rgb(100, 71, 58);
+}
+
+.contents_style .block-color-orange {
+  color: rgb(217, 115, 13);
+  fill: rgb(217, 115, 13);
+}
+
+.contents_style .block-color-yellow {
+  color: rgb(223, 171, 1);
+  fill: rgb(223, 171, 1);
+}
+
+.contents_style .block-color-teal {
+  color: rgb(15, 123, 108);
+  fill: rgb(15, 123, 108);
+}
+
+.contents_style .block-color-blue {
+  color: rgb(11, 110, 153);
+  fill: rgb(11, 110, 153);
+}
+
+.contents_style .block-color-purple {
+  color: rgb(105, 64, 165);
+  fill: rgb(105, 64, 165);
+}
+
+.contents_style .block-color-pink {
+  color: rgb(173, 26, 114);
+  fill: rgb(173, 26, 114);
+}
+
+.contents_style .block-color-red {
+  color: rgb(224, 62, 62);
+  fill: rgb(224, 62, 62);
+}
+
+.contents_style .block-color-gray_background {
+  background: rgb(235, 236, 237);
+}
+
+.contents_style .block-color-brown_background {
+  background: rgb(233, 229, 227);
+}
+
+.contents_style .block-color-orange_background {
+  background: rgb(250, 235, 221);
+}
+
+.contents_style .block-color-yellow_background {
+  background: rgb(251, 243, 219);
+}
+
+.contents_style .block-color-teal_background {
+  background: rgb(221, 237, 234);
+}
+
+.contents_style .block-color-blue_background {
+  background: rgb(221, 235, 241);
+}
+
+.contents_style .block-color-purple_background {
+  background: rgb(234, 228, 242);
+}
+
+.contents_style .block-color-pink_background {
+  background: rgb(244, 223, 235);
+}
+
+.contents_style .block-color-red_background {
+  background: rgb(251, 228, 228);
+}
+.contents_style .select-value-color-default {
+  background-color: rgba(206, 205, 202, 0.5);
+}
+.contents_style .select-value-color-gray {
+  background-color: rgba(155, 154, 151, 0.4);
+}
+.contents_style .select-value-color-brown {
+  background-color: rgba(140, 46, 0, 0.2);
+}
+.contents_style .select-value-color-orange {
+  background-color: rgba(245, 93, 0, 0.2);
+}
+.contents_style .select-value-color-yellow {
+  background-color: rgba(233, 168, 0, 0.2);
+}
+.contents_style .select-value-color-green {
+  background-color: rgba(0, 135, 107, 0.2);
+}
+.contents_style .select-value-color-blue {
+  background-color: rgba(0, 120, 223, 0.2);
+}
+.contents_style .select-value-color-purple {
+  background-color: rgba(103, 36, 222, 0.2);
+}
+.contents_style .select-value-color-pink {
+  background-color: rgba(221, 0, 129, 0.2);
+}
+.contents_style .select-value-color-red {
+  background-color: rgba(255, 0, 26, 0.2);
+}
+
+.contents_style .checkbox {
+  display: inline-flex;
+  vertical-align: text-bottom;
+  width: 16px;
+  height: 16px;
+  background-size: 16px;
+  margin-left: 2px;
+  margin-right: 5px;
+}
+
+.contents_style .checkbox-on {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.contents_style .checkbox-off {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.contents_style .embed_container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+}
+
+.contents_style .embed_inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.contents_style iframe {
+  border: 0;
+}
+
+em {
+  font-style: italic;
+}
+
+/* 테이블 css */
+.contents_style .simple-table {
+  margin-top: 1em;
+}
+
+.contents_style .simple-table-header {
+  background: rgb(247, 246, 243);
+  color: black;
+}
+
+
+/* 리스트블록 앞 마진 제거 */
+.contents_style ul li {
+margin-left: 0px;
+margin-bottom: 0px;
+}
+
+.contents_style ol li {
+margin-left: 0px;
+margin-bottom: 0px;
+}
+
+/* CSS for Notion Posts Done*/

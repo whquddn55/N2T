@@ -101,7 +101,7 @@ def get_notion_html(html_fp,
 
     # body태그에 notion style css link 추가
     style_tag = soup.new_tag('link', rel='stylesheet',
-                             href="https://rawcdn.githack.com/ppuep94/n2t/5ef4dc01e9d6336341e9ab95bb71672f9d3a3dc9/assets/css/style2.css")
+                             href="https://rawcdn.githack.com/whquddn55/N2T/283c35a8df20927cd9582c098072ad86fb8f82ff/asset/style.css")
     body = soup.find('body')
     body.insert(0, style_tag)
 
